@@ -146,16 +146,15 @@ public class ShopController {
         
     }
     
-    @RequestMapping(value = "/makeOrder/{userId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/makeOrder",method = RequestMethod.GET)
     public String makeOrder( 
             UsernamePasswordAuthenticationToken currentUser,
-            @RequestParam(value = "userId")
-            Integer id,
             ModelMap model){
         
             Basket basket = (Basket) model.get("basket");
             
-            if(goodservice.confirmOrder(id, basket)){
+            if(goodservice.confirmOrder(((User)currentUser.getPrincipal()).getId(), basket)){
+                basket.clear();
                 return "ConfirmOrder";
             }//if
             else

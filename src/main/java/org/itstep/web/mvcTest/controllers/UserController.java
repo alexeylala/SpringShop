@@ -60,7 +60,7 @@ public class UserController {
         
         try {
             
-            u = userService.find(id);
+            u = userService.find(((User) currentUser.getPrincipal()).getId());
             model.addAttribute("user", u);
             model.addAttribute("current", (User) currentUser.getPrincipal());
             return "user";

@@ -12,5 +12,15 @@ import java.util.HashMap;
  * @author Алексей
  */
 public class Basket extends HashMap<Integer, BasketItem>{
-    
+    public String getTotalCount(){
+        
+        double sum = 0.0;
+        
+        for(BasketItem item : this.values()){
+            sum+= ( item.getCount() * item.getGood().getPrice());
+        }//for
+        
+        return String.format("%.2f", sum);
+        
+    }
 }

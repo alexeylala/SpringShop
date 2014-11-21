@@ -67,7 +67,8 @@
                         </div>
                        
                     </div>
-                    <span><a class="btn btn-primary btn-lg" href="<c:url value="/shop/makeOrder/${current.id}" />" >Оформить заказ</a></span>
+                    <div class="alert alert-success" role="alert">Общая стоимость выбранных товаров - ${basket.getTotalCount()}<a style="margin-left: 10px" class="btn btn-primary btn-lg" href="<c:url value="/shop/makeOrder" />" >Оформить заказ</a></div>
+                    
                 </div>
             </div>
         </div>
